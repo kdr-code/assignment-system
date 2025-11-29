@@ -4,9 +4,10 @@ const submissionSchema = new mongoose.Schema(
   {
     assignmentId: { type: String, required: true },
     studentId: { type: String, required: true },
-    studentName: { type: String },
-    studentEmail: { type: String },
-    fileName: String,
+    studentName: String,     // Student's name from JWT
+    studentEmail: String,    // Student's email from JWT
+    fileName: String,        // Original file name
+    filePath: String,        // Server path where file is stored
     fileSize: Number,
     fileType: String,
     status: { type: String, default: 'submitted' },
@@ -15,6 +16,5 @@ const submissionSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 
 module.exports = mongoose.model('Submission', submissionSchema);
